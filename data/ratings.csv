@@ -1,0 +1,234 @@
+user_id,item_id,rating,visitor_comment
+U01,E01,4,"Good display, wish there was more context."
+U01,E02,5,Stood in front of this for ages.
+U01,E03,5,I'd bring friends back just for this.
+U01,E04,5,Exactly what I came to see.
+U01,E05,5,Exactly what I came to see.
+U01,E07,3,Pleasant but small.
+U01,E08,4,Worth a longer look.
+U01,E09,5,Loved the story behind it.
+U01,E10,4,"Good display, wish there was more context."
+U01,E12,2,The placard was too short to hold my attention.
+U01,E13,3,"Okay, nothing that stuck with me."
+U01,E18,3,Pleasant but small.
+U01,E19,2,Not really my thing.
+U01,E21,1,"Boring for me, skipped most of it."
+U01,E30,4,"Really interesting, learned something new."
+U01,E31,2,The placard was too short to hold my attention.
+U01,E32,2,The placard was too short to hold my attention.
+U01,E35,1,"Boring for me, skipped most of it."
+U01,E38,4,Liked how the placard explained the use.
+U02,E03,2,Hard to connect with this one.
+U02,E05,2,Hard to connect with this one.
+U02,E07,1,"Boring for me, skipped most of it."
+U02,E08,4,"Good display, wish there was more context."
+U02,E09,2,The placard was too short to hold my attention.
+U02,E10,2,Hard to connect with this one.
+U02,E11,3,Pleasant but small.
+U02,E14,5,Loved the story behind it.
+U02,E15,4,Beautiful and well lit.
+U02,E16,4,Worth a longer look.
+U02,E17,4,"Really interesting, learned something new."
+U02,E18,5,Stood in front of this for ages.
+U02,E19,4,Liked how the placard explained the use.
+U02,E20,4,Beautiful and well lit.
+U02,E21,5,"Best piece of my visit, the detail is superb."
+U02,E22,1,Did not hold my interest at all.
+U02,E25,3,"Fine, but I walked past it quickly."
+U02,E30,3,"Interesting idea, a bit dry."
+U02,E36,2,Hard to connect with this one.
+U03,E01,4,Beautiful and well lit.
+U03,E02,5,I'd bring friends back just for this.
+U03,E03,5,"Best piece of my visit, the detail is superb."
+U03,E05,4,Beautiful and well lit.
+U03,E06,4,"Really interesting, learned something new."
+U03,E07,4,Worth a longer look.
+U03,E08,4,Liked how the placard explained the use.
+U03,E12,3,Pleasant but small.
+U03,E13,4,"Really interesting, learned something new."
+U03,E14,1,Did not hold my interest at all.
+U03,E22,3,Pleasant but small.
+U03,E27,3,"Interesting idea, a bit dry."
+U03,E28,3,"Okay, nothing that stuck with me."
+U03,E29,3,"Interesting idea, a bit dry."
+U03,E30,4,Worth a longer look.
+U03,E33,3,Pleasant but small.
+U03,E34,2,Hard to connect with this one.
+U03,E38,4,"Good display, wish there was more context."
+U04,E09,2,Not really my thing.
+U04,E12,3,"Okay, nothing that stuck with me."
+U04,E13,2,The placard was too short to hold my attention.
+U04,E15,1,"Boring for me, skipped most of it."
+U04,E19,2,The placard was too short to hold my attention.
+U04,E20,2,Hard to connect with this one.
+U04,E21,2,The placard was too short to hold my attention.
+U04,E22,4,"Good display, wish there was more context."
+U04,E23,4,Liked how the placard explained the use.
+U04,E24,3,Pleasant but small.
+U04,E25,5,Exactly what I came to see.
+U04,E26,4,Beautiful and well lit.
+U04,E31,2,Not really my thing.
+U04,E33,3,Pleasant but small.
+U04,E38,3,"Fine, but I walked past it quickly."
+U05,E01,2,Not really my thing.
+U05,E03,2,Hard to connect with this one.
+U05,E05,2,The placard was too short to hold my attention.
+U05,E07,3,"Interesting idea, a bit dry."
+U05,E10,2,Hard to connect with this one.
+U05,E11,2,The placard was too short to hold my attention.
+U05,E12,2,The placard was too short to hold my attention.
+U05,E19,2,Hard to connect with this one.
+U05,E20,1,"Boring for me, skipped most of it."
+U05,E21,3,Pleasant but small.
+U05,E22,2,The placard was too short to hold my attention.
+U05,E25,2,Not really my thing.
+U05,E27,3,"Okay, nothing that stuck with me."
+U05,E28,5,"Best piece of my visit, the detail is superb."
+U05,E29,5,Exactly what I came to see.
+U05,E30,5,Loved the story behind it.
+U05,E31,5,Exactly what I came to see.
+U05,E33,3,Pleasant but small.
+U05,E35,3,"Interesting idea, a bit dry."
+U06,E04,2,Not really my thing.
+U06,E08,2,Hard to connect with this one.
+U06,E09,2,The placard was too short to hold my attention.
+U06,E11,3,"Interesting idea, a bit dry."
+U06,E14,3,Pleasant but small.
+U06,E19,3,"Interesting idea, a bit dry."
+U06,E20,3,"Interesting idea, a bit dry."
+U06,E21,3,"Okay, nothing that stuck with me."
+U06,E32,4,"Good display, wish there was more context."
+U06,E33,4,"Good display, wish there was more context."
+U06,E34,5,Stood in front of this for ages.
+U06,E35,5,Loved the story behind it.
+U06,E36,5,"Best piece of my visit, the detail is superb."
+U06,E37,5,Stood in front of this for ages.
+U06,E38,2,Not really my thing.
+U07,E01,5,Exactly what I came to see.
+U07,E02,4,"Good display, wish there was more context."
+U07,E03,4,Liked how the placard explained the use.
+U07,E06,4,Beautiful and well lit.
+U07,E12,5,Exactly what I came to see.
+U07,E13,5,"Best piece of my visit, the detail is superb."
+U07,E21,5,I'd bring friends back just for this.
+U07,E22,3,"Fine, but I walked past it quickly."
+U07,E25,2,Hard to connect with this one.
+U07,E26,2,The placard was too short to hold my attention.
+U07,E30,5,Stood in front of this for ages.
+U07,E33,2,Not really my thing.
+U07,E35,2,The placard was too short to hold my attention.
+U07,E36,3,"Okay, nothing that stuck with me."
+U07,E38,5,Loved the story behind it.
+U08,E08,2,Not really my thing.
+U08,E09,5,"Best piece of my visit, the detail is superb."
+U08,E10,5,Loved the story behind it.
+U08,E11,5,Stood in front of this for ages.
+U08,E12,4,Liked how the placard explained the use.
+U08,E13,3,Pleasant but small.
+U08,E15,3,"Fine, but I walked past it quickly."
+U08,E17,2,Not really my thing.
+U08,E19,2,Not really my thing.
+U08,E21,3,"Okay, nothing that stuck with me."
+U08,E23,1,"Boring for me, skipped most of it."
+U08,E24,2,Not really my thing.
+U08,E25,3,"Fine, but I walked past it quickly."
+U08,E30,3,"Interesting idea, a bit dry."
+U08,E34,2,Hard to connect with this one.
+U08,E37,3,"Interesting idea, a bit dry."
+U09,E02,3,Pleasant but small.
+U09,E03,2,Not really my thing.
+U09,E07,2,Hard to connect with this one.
+U09,E08,5,Stood in front of this for ages.
+U09,E10,1,"Boring for me, skipped most of it."
+U09,E12,1,"Boring for me, skipped most of it."
+U09,E14,5,"Best piece of my visit, the detail is superb."
+U09,E15,5,Exactly what I came to see.
+U09,E16,5,Stood in front of this for ages.
+U09,E17,4,Worth a longer look.
+U09,E18,4,Beautiful and well lit.
+U09,E19,5,Exactly what I came to see.
+U09,E20,4,Liked how the placard explained the use.
+U09,E21,5,Exactly what I came to see.
+U09,E22,5,Exactly what I came to see.
+U09,E23,4,"Good display, wish there was more context."
+U09,E24,5,Loved the story behind it.
+U09,E26,5,Loved the story behind it.
+U09,E29,2,The placard was too short to hold my attention.
+U09,E34,3,"Okay, nothing that stuck with me."
+U09,E35,2,The placard was too short to hold my attention.
+U10,E01,3,"Okay, nothing that stuck with me."
+U10,E05,3,"Fine, but I walked past it quickly."
+U10,E08,3,Pleasant but small.
+U10,E10,2,The placard was too short to hold my attention.
+U10,E12,2,Not really my thing.
+U10,E15,2,The placard was too short to hold my attention.
+U10,E17,3,"Fine, but I walked past it quickly."
+U10,E20,2,Hard to connect with this one.
+U10,E22,2,Hard to connect with this one.
+U10,E23,2,Not really my thing.
+U10,E25,2,Not really my thing.
+U10,E27,5,"Best piece of my visit, the detail is superb."
+U10,E28,5,Stood in front of this for ages.
+U10,E29,5,"Best piece of my visit, the detail is superb."
+U10,E30,4,Beautiful and well lit.
+U10,E31,4,"Good display, wish there was more context."
+U10,E32,4,Worth a longer look.
+U10,E33,5,Stood in front of this for ages.
+U10,E34,4,"Really interesting, learned something new."
+U10,E35,5,Stood in front of this for ages.
+U10,E36,5,Stood in front of this for ages.
+U10,E37,5,I'd bring friends back just for this.
+U11,E01,4,"Good display, wish there was more context."
+U11,E03,4,Beautiful and well lit.
+U11,E04,4,"Good display, wish there was more context."
+U11,E05,5,"Best piece of my visit, the detail is superb."
+U11,E06,4,Liked how the placard explained the use.
+U11,E07,5,Exactly what I came to see.
+U11,E09,5,Loved the story behind it.
+U11,E10,5,Exactly what I came to see.
+U11,E11,2,Hard to connect with this one.
+U11,E13,3,"Okay, nothing that stuck with me."
+U11,E16,2,Not really my thing.
+U11,E20,2,Not really my thing.
+U11,E21,4,"Really interesting, learned something new."
+U11,E24,3,"Interesting idea, a bit dry."
+U11,E25,3,"Okay, nothing that stuck with me."
+U11,E29,1,"Boring for me, skipped most of it."
+U11,E30,4,Beautiful and well lit.
+U11,E34,1,"Boring for me, skipped most of it."
+U12,E01,2,Hard to connect with this one.
+U12,E03,3,"Interesting idea, a bit dry."
+U12,E07,3,Pleasant but small.
+U12,E08,5,Stood in front of this for ages.
+U12,E09,2,Not really my thing.
+U12,E12,3,"Okay, nothing that stuck with me."
+U12,E14,5,Loved the story behind it.
+U12,E15,4,Beautiful and well lit.
+U12,E16,4,"Good display, wish there was more context."
+U12,E17,5,Stood in front of this for ages.
+U12,E18,5,"Best piece of my visit, the detail is superb."
+U12,E19,4,"Good display, wish there was more context."
+U12,E20,5,Exactly what I came to see.
+U12,E21,4,Beautiful and well lit.
+U12,E22,3,"Fine, but I walked past it quickly."
+U12,E24,2,The placard was too short to hold my attention.
+U12,E25,2,Not really my thing.
+U12,E26,3,"Fine, but I walked past it quickly."
+U12,E30,1,"Boring for me, skipped most of it."
+U12,E32,3,"Okay, nothing that stuck with me."
+U12,E33,3,Pleasant but small.
+U12,E37,3,"Okay, nothing that stuck with me."
+U13,E03,1,Did not hold my interest at all.
+U13,E04,3,"Interesting idea, a bit dry."
+U13,E06,3,"Interesting idea, a bit dry."
+U13,E09,2,Not really my thing.
+U13,E11,4,Worth a longer look.
+U13,E12,2,Not really my thing.
+U13,E20,1,Did not hold my interest at all.
+U13,E24,4,"Really interesting, learned something new."
+U13,E27,2,Hard to connect with this one.
+U13,E28,4,Beautiful and well lit.
+U13,E32,5,"Best piece of my visit, the detail is superb."
+U13,E33,5,"Best piece of my visit, the detail is superb."
+U13,E37,3,"Okay, nothing that stuck with me."
+U13,E38,4,Worth a longer look.
