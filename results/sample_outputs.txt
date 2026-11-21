@@ -1,0 +1,93 @@
+==============================================================================
+TEST CASE 1 - Theme query
+Query: "ancient maritime trade, traditional ceramics, and maps"
+==============================================================================
+ rank item_id                         exhibit_title  score                                 keywords
+    1     E08 Shipwreck Cargo: Salvaged Trade Goods  0.214 maritime trade, ceramic, maritime, trade
+    2     E10              Ming Dynasty Coastal Map  0.188                     map, trade, maritime
+    3     E04                  Hoi An Harbor Scroll  0.186 maritime trade, maritime, trade, ceramic
+    4     E03             Logbook of a Spice Voyage  0.171          maritime trade, trade, maritime
+    5     E06         Manila Galleon Cargo Manifest  0.159          maritime trade, maritime, trade
+
+==============================================================================
+TEST CASE 2 - Returning visitor (U07)
+==============================================================================
+U07 has rated 15 exhibits. Past favourites (rating >= 4):
+  E01  Chinese Junk Model  (rating 5)
+  E13  Silk Road Caravan Route Map  (rating 5)
+  E12  Celestial Star Chart  (rating 5)
+  E21  Delftware Tulip Vase  (rating 5)
+  E30  Bronze Ship's Cannon  (rating 5)
+  E38  Dong Son Bronze Drum  (rating 5)
+  E02  Portuguese Navigator's Astrolabe  (rating 4)
+  E06  Manila Galleon Cargo Manifest  (rating 4)
+  E03  Logbook of a Spice Voyage  (rating 4)
+
+--- popularity ---
+ rank item_id              exhibit_title  score                                             keywords
+    1     E18         Kendi Water Vessel  3.935                   trade, ship, vessel, pottery, asia
+    2     E28 Dong Son Bronze Dagger-axe  3.935 bronze, bronze vietnam, archaeology, weapon, warfare
+    3     E37 Shang Ritual Bronze Vessel  3.658             bronze, ritual, china, vessel, ceremonie
+    4     E14   Ming Blue-and-White Vase  3.658              porcelain, china, vase, flower, ceramic
+    5     E16        Chu Dau Ceramic Jar  3.602                    vietnam, ceramic, blue, decorated
+Check: none already visited -> True
+
+--- content ---
+ rank item_id                         exhibit_title  score                                                    keywords
+    1     E10              Ming Dynasty Coastal Map  0.149                        trade, map, maritime, china, chinese
+    2     E04                  Hoi An Harbor Scroll  0.131           trade, maritime, maritime trade, merchant, harbor
+    3     E07             Chinese Lodestone Compass  0.126 maritime, navigation, science, china, navigation instrument
+    4     E08 Shipwreck Cargo: Salvaged Trade Goods  0.116        trade, maritime, archaeology, maritime trade, bronze
+    5     E05                       Arab Dhow Model  0.111                 ship, trade, maritime, ocean, maritime ship
+Check: none already visited -> True
+
+--- cf ---
+ rank item_id                         exhibit_title  score                                             keywords
+    1     E18                    Kendi Water Vessel  4.887                   trade, ship, vessel, pottery, asia
+    2     E04                  Hoi An Harbor Scroll  4.772    trade, maritime, maritime trade, merchant, harbor
+    3     E15                     Song Celadon Bowl  4.367                               china, ceramic, potter
+    4     E09               Venetian Portolan Chart  4.252                maritime, map, navigation, chart, sea
+    5     E08 Shipwreck Cargo: Salvaged Trade Goods  4.203 trade, maritime, archaeology, maritime trade, bronze
+Check: none already visited -> True
+
+--- hybrid ---
+ rank item_id                         exhibit_title  score                                             keywords
+    1     E04                  Hoi An Harbor Scroll  0.609    trade, maritime, maritime trade, merchant, harbor
+    2     E18                    Kendi Water Vessel  0.600                   trade, ship, vessel, pottery, asia
+    3     E08 Shipwreck Cargo: Salvaged Trade Goods  0.506 trade, maritime, archaeology, maritime trade, bronze
+    4     E09               Venetian Portolan Chart  0.503                maritime, map, navigation, chart, sea
+    5     E10              Ming Dynasty Coastal Map  0.491                 trade, map, maritime, china, chinese
+Check: none already visited -> True
+
+==============================================================================
+TEST CASE 3 - Cold-start: new temporary exhibit (placard text only, 0 ratings)
+New exhibit: E39 - Temporary: Cargo of the Ca Mau Shipwreck
+==============================================================================
+Before adding it, E39 in top-5 for the theme query: False
+
+After adding it (theme query: "ancient maritime trade, traditional ceramics, and maps"):
+ rank item_id                            exhibit_title  score                                 keywords
+    1     E39 Temporary: Cargo of the Ca Mau Shipwreck  0.319            map, ceramic, maritime, trade
+    2     E08    Shipwreck Cargo: Salvaged Trade Goods  0.214 maritime trade, ceramic, maritime, trade
+    3     E10                 Ming Dynasty Coastal Map  0.188                     map, trade, maritime
+    4     E04                     Hoi An Harbor Scroll  0.186 maritime trade, maritime, trade, ceramic
+    5     E03                Logbook of a Spice Voyage  0.171          maritime trade, trade, maritime
+Check: E39 discovered in top-5 -> True (rank 1)
+
+Hybrid recommendations for U07 with the new exhibit in the catalogue:
+ rank item_id                            exhibit_title  score                                             keywords
+    1     E39 Temporary: Cargo of the Ca Mau Shipwreck  0.643                      map, trade, maritime, ship, sea
+    2     E04                     Hoi An Harbor Scroll  0.609    trade, maritime, maritime trade, merchant, harbor
+    3     E18                       Kendi Water Vessel  0.600                   trade, ship, vessel, pottery, asia
+    4     E08    Shipwreck Cargo: Salvaged Trade Goods  0.506 trade, maritime, archaeology, maritime trade, bronze
+    5     E09                  Venetian Portolan Chart  0.503                maritime, map, navigation, chart, sea
+Check: E39 in U07's hybrid top-5 -> True
+
+Popularity baseline cannot see it (no ratings yet): E39 in top-5 -> False
+
+Exhibits most similar to E39 (item-to-item, content only):
+ rank item_id                         exhibit_title  score                                           keywords
+    1     E08 Shipwreck Cargo: Salvaged Trade Goods  0.227     shipwreck, ceramic, recovered, maritime, trade
+    2     E01                    Chinese Junk Model  0.198       sea, south china, south, china sea, maritime
+    3     E21                  Delftware Tulip Vase  0.186 ceramic, white porcelain, blue white, white, trade
+

@@ -1,0 +1,5 @@
+Method,Precision@5,RMSE,MAE
+Popularity,0.026,1.362,1.167
+NLP Content,0.224,0.999,0.782
+User-based CF,0.126,1.372,1.101
+Hybrid,0.159,1.095,0.861
