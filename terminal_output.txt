@@ -1,0 +1,238 @@
+CS467 Mini-Project MP-C08 - Museum Exhibit and Cultural Site Recommender
+Terminal output log (cleaned: only the successful runs of the final code)
+
+Environment: Windows, PowerShell, Python 3.14
+Packages:    numpy 2.4.1, pandas 2.3.3, scikit-learn 1.9.1, scipy 1.17.0, matplotlib 3.10.8
+Run from:    project root (cs467-miniproject-29211354053)
+
+Contents
+  1. Install dependencies
+  2. NLP pipeline self-test            (python src\nlp_pipeline.py)
+  3. Recommender self-test             (python src\recommender.py)
+  4. Offline evaluation                (python src\evaluate.py)
+  5. Demo: the 3 required test cases   (python src\main.py)
+  6. Demo: interactive options         (--user, --query, --similar)
+  7. Git commits pushed to GitHub
+
+
+================================================================================
+1. Install dependencies
+================================================================================
+PS> pip install -r requirements.txt
+(all packages installed successfully)
+
+
+================================================================================
+2. NLP pipeline self-test
+================================================================================
+PS> python src\nlp_pipeline.py
+TF-IDF matrix: (38, 1272)
+E08 Shipwreck Cargo: Salvaged Trade Goods    0.214  ['maritime trade', 'ceramic', 'maritime', 'trade']
+E10 Ming Dynasty Coastal Map                 0.188  ['map', 'trade', 'maritime']
+E04 Hoi An Harbor Scroll                     0.186  ['maritime trade', 'maritime', 'trade', 'ceramic']
+E03 Logbook of a Spice Voyage                0.171  ['maritime trade', 'trade', 'maritime']
+E06 Manila Galleon Cargo Manifest            0.159  ['maritime trade', 'maritime', 'trade']
+
+
+================================================================================
+3. Recommender self-test
+================================================================================
+PS> python src\recommender.py
+ rank item_id                         exhibit_title  score                                 keywords
+    1     E08 Shipwreck Cargo: Salvaged Trade Goods  0.214 maritime trade, ceramic, maritime, trade
+    2     E10              Ming Dynasty Coastal Map  0.188                     map, trade, maritime
+    3     E04                  Hoi An Harbor Scroll  0.186 maritime trade, maritime, trade, ceramic
+    4     E03             Logbook of a Spice Voyage  0.171          maritime trade, trade, maritime
+    5     E06         Manila Galleon Cargo Manifest  0.159          maritime trade, maritime, trade
+
+[popularity] U07
+ rank item_id              exhibit_title  score                                             keywords
+    1     E18         Kendi Water Vessel  3.935                   trade, ship, vessel, pottery, asia
+    2     E28 Dong Son Bronze Dagger-axe  3.935 bronze, bronze vietnam, archaeology, weapon, warfare
+    3     E37 Shang Ritual Bronze Vessel  3.658             bronze, ritual, china, vessel, ceremonie
+    4     E14   Ming Blue-and-White Vase  3.658              porcelain, china, vase, flower, ceramic
+    5     E16        Chu Dau Ceramic Jar  3.602                    vietnam, ceramic, blue, decorated
+
+[content] U07
+ rank item_id                         exhibit_title  score                                                    keywords
+    1     E10              Ming Dynasty Coastal Map  0.149                        trade, map, maritime, china, chinese
+    2     E04                  Hoi An Harbor Scroll  0.131           trade, maritime, maritime trade, merchant, harbor
+    3     E07             Chinese Lodestone Compass  0.126 maritime, navigation, science, china, navigation instrument
+    4     E08 Shipwreck Cargo: Salvaged Trade Goods  0.116        trade, maritime, archaeology, maritime trade, bronze
+    5     E05                       Arab Dhow Model  0.111                 ship, trade, maritime, ocean, maritime ship
+
+[cf] U07
+ rank item_id                         exhibit_title  score                                             keywords
+    1     E18                    Kendi Water Vessel  4.887                   trade, ship, vessel, pottery, asia
+    2     E04                  Hoi An Harbor Scroll  4.772    trade, maritime, maritime trade, merchant, harbor
+    3     E15                     Song Celadon Bowl  4.367                               china, ceramic, potter
+    4     E09               Venetian Portolan Chart  4.252                maritime, map, navigation, chart, sea
+    5     E08 Shipwreck Cargo: Salvaged Trade Goods  4.203 trade, maritime, archaeology, maritime trade, bronze
+
+[hybrid] U07
+ rank item_id                         exhibit_title  score                                             keywords
+    1     E04                  Hoi An Harbor Scroll  0.609    trade, maritime, maritime trade, merchant, harbor
+    2     E18                    Kendi Water Vessel  0.600                   trade, ship, vessel, pottery, asia
+    3     E08 Shipwreck Cargo: Salvaged Trade Goods  0.506 trade, maritime, archaeology, maritime trade, bronze
+    4     E09               Venetian Portolan Chart  0.503                maritime, map, navigation, chart, sea
+    5     E10              Ming Dynasty Coastal Map  0.491                 trade, map, maritime, china, chinese
+
+
+================================================================================
+4. Offline evaluation
+================================================================================
+PS> python src\evaluate.py
+Data: 38 items, 13 users, 233 ratings, sparsity 52.8%
+
+Results over 20 random splits (3 hidden ratings per visitor, relevant = rating >= 4):
+       Method  Precision@5  RMSE   MAE
+   Popularity        0.026 1.362 1.167
+  NLP Content        0.224 0.999 0.782
+User-based CF        0.126 1.372 1.101
+       Hybrid        0.159 1.095 0.861
+
+Saved charts and tables to results/
+
+
+================================================================================
+5. Demo: the 3 required test cases
+================================================================================
+PS> python src\main.py
+==============================================================================
+TEST CASE 1 - Theme query
+Query: "ancient maritime trade, traditional ceramics, and maps"
+==============================================================================
+ rank item_id                         exhibit_title  score                                 keywords
+    1     E08 Shipwreck Cargo: Salvaged Trade Goods  0.214 maritime trade, ceramic, maritime, trade
+    2     E10              Ming Dynasty Coastal Map  0.188                     map, trade, maritime
+    3     E04                  Hoi An Harbor Scroll  0.186 maritime trade, maritime, trade, ceramic
+    4     E03             Logbook of a Spice Voyage  0.171          maritime trade, trade, maritime
+    5     E06         Manila Galleon Cargo Manifest  0.159          maritime trade, maritime, trade
+
+==============================================================================
+TEST CASE 2 - Returning visitor (U07)
+==============================================================================
+U07 has rated 15 exhibits. Past favourites (rating >= 4):
+  E01  Chinese Junk Model  (rating 5)
+  E13  Silk Road Caravan Route Map  (rating 5)
+  E12  Celestial Star Chart  (rating 5)
+  E21  Delftware Tulip Vase  (rating 5)
+  E30  Bronze Ship's Cannon  (rating 5)
+  E38  Dong Son Bronze Drum  (rating 5)
+  E02  Portuguese Navigator's Astrolabe  (rating 4)
+  E06  Manila Galleon Cargo Manifest  (rating 4)
+  E03  Logbook of a Spice Voyage  (rating 4)
+
+--- popularity ---
+ rank item_id              exhibit_title  score                                             keywords
+    1     E18         Kendi Water Vessel  3.935                   trade, ship, vessel, pottery, asia
+    2     E28 Dong Son Bronze Dagger-axe  3.935 bronze, bronze vietnam, archaeology, weapon, warfare
+    3     E37 Shang Ritual Bronze Vessel  3.658             bronze, ritual, china, vessel, ceremonie
+    4     E14   Ming Blue-and-White Vase  3.658              porcelain, china, vase, flower, ceramic
+    5     E16        Chu Dau Ceramic Jar  3.602                    vietnam, ceramic, blue, decorated
+Check: none already visited -> True
+
+--- content ---
+ rank item_id                         exhibit_title  score                                                    keywords
+    1     E10              Ming Dynasty Coastal Map  0.149                        trade, map, maritime, china, chinese
+    2     E04                  Hoi An Harbor Scroll  0.131           trade, maritime, maritime trade, merchant, harbor
+    3     E07             Chinese Lodestone Compass  0.126 maritime, navigation, science, china, navigation instrument
+    4     E08 Shipwreck Cargo: Salvaged Trade Goods  0.116        trade, maritime, archaeology, maritime trade, bronze
+    5     E05                       Arab Dhow Model  0.111                 ship, trade, maritime, ocean, maritime ship
+Check: none already visited -> True
+
+--- cf ---
+ rank item_id                         exhibit_title  score                                             keywords
+    1     E18                    Kendi Water Vessel  4.887                   trade, ship, vessel, pottery, asia
+    2     E04                  Hoi An Harbor Scroll  4.772    trade, maritime, maritime trade, merchant, harbor
+    3     E15                     Song Celadon Bowl  4.367                               china, ceramic, potter
+    4     E09               Venetian Portolan Chart  4.252                maritime, map, navigation, chart, sea
+    5     E08 Shipwreck Cargo: Salvaged Trade Goods  4.203 trade, maritime, archaeology, maritime trade, bronze
+Check: none already visited -> True
+
+--- hybrid ---
+ rank item_id                         exhibit_title  score                                             keywords
+    1     E04                  Hoi An Harbor Scroll  0.609    trade, maritime, maritime trade, merchant, harbor
+    2     E18                    Kendi Water Vessel  0.600                   trade, ship, vessel, pottery, asia
+    3     E08 Shipwreck Cargo: Salvaged Trade Goods  0.506 trade, maritime, archaeology, maritime trade, bronze
+    4     E09               Venetian Portolan Chart  0.503                maritime, map, navigation, chart, sea
+    5     E10              Ming Dynasty Coastal Map  0.491                 trade, map, maritime, china, chinese
+Check: none already visited -> True
+
+==============================================================================
+TEST CASE 3 - Cold-start: new temporary exhibit (placard text only, 0 ratings)
+New exhibit: E39 - Temporary: Cargo of the Ca Mau Shipwreck
+==============================================================================
+Before adding it, E39 in top-5 for the theme query: False
+
+After adding it (theme query: "ancient maritime trade, traditional ceramics, and maps"):
+ rank item_id                            exhibit_title  score                                 keywords
+    1     E39 Temporary: Cargo of the Ca Mau Shipwreck  0.319            map, ceramic, maritime, trade
+    2     E08    Shipwreck Cargo: Salvaged Trade Goods  0.214 maritime trade, ceramic, maritime, trade
+    3     E10                 Ming Dynasty Coastal Map  0.188                     map, trade, maritime
+    4     E04                  Hoi An Harbor Scroll  0.186 maritime trade, maritime, trade, ceramic
+    5     E03                Logbook of a Spice Voyage  0.171          maritime trade, trade, maritime
+Check: E39 discovered in top-5 -> True (rank 1)
+
+Hybrid recommendations for U07 with the new exhibit in the catalogue:
+ rank item_id                            exhibit_title  score                                             keywords
+    1     E39 Temporary: Cargo of the Ca Mau Shipwreck  0.643                      map, trade, maritime, ship, sea
+    2     E04                     Hoi An Harbor Scroll  0.609    trade, maritime, maritime trade, merchant, harbor
+    3     E18                       Kendi Water Vessel  0.600                   trade, ship, vessel, pottery, asia
+    4     E08    Shipwreck Cargo: Salvaged Trade Goods  0.506 trade, maritime, archaeology, maritime trade, bronze
+    5     E09               Venetian Portolan Chart  0.503                maritime, map, navigation, chart, sea
+Check: E39 in U07's hybrid top-5 -> True
+
+Popularity baseline cannot see it (no ratings yet): E39 in top-5 -> False
+
+Exhibits most similar to E39 (item-to-item, content only):
+ rank item_id                         exhibit_title  score                                           keywords
+    1     E08 Shipwreck Cargo: Salvaged Trade Goods  0.227     shipwreck, ceramic, recovered, maritime, trade
+    2     E01                    Chinese Junk Model  0.198       sea, south china, south, china sea, maritime
+    3     E21                  Delftware Tulip Vase  0.186 ceramic, white porcelain, blue white, white, trade
+
+Saved to results/sample_outputs.txt
+
+
+================================================================================
+6. Demo: interactive options
+================================================================================
+PS> python src\main.py --user U07 --method cf
+Top-5 unvisited exhibits for U07 (cf):
+ rank item_id                         exhibit_title  score                                             keywords
+    1     E18                    Kendi Water Vessel  4.887                   trade, ship, vessel, pottery, asia
+    2     E04                  Hoi An Harbor Scroll  4.772    trade, maritime, maritime trade, merchant, harbor
+    3     E15                     Song Celadon Bowl  4.367                               china, ceramic, potter
+    4     E09               Venetian Portolan Chart  4.252                maritime, map, navigation, chart, sea
+    5     E08 Shipwreck Cargo: Salvaged Trade Goods  4.203 trade, maritime, archaeology, maritime trade, bronze
+
+PS> python src\main.py --query "silk road textiles"
+Top-5 for query: "silk road textiles"
+ rank item_id               exhibit_title  score                                     keywords
+    1     E25         Persian Silk Carpet  0.350 silk road, road, road textile, textile, silk
+    2     E19         Tang Tricolor Camel  0.255                        silk road, road, silk
+    3     E13 Silk Road Caravan Route Map  0.211                        silk road, road, silk
+    4     E22     Silk Brocade Court Robe  0.132                                textile, silk
+    5     E24  Imperial Embroidered Panel  0.127                                textile, silk
+
+PS> python src\main.py --similar E08
+Exhibits similar to E08 (Shipwreck Cargo: Salvaged Trade Goods):
+ rank item_id             exhibit_title  score                                         keywords
+    1     E03 Logbook of a Spice Voyage  0.086           maritime trade, trade, cargo, maritime
+    2     E30      Bronze Ship's Cannon  0.084 trading vessel, maritime, trade, trading, vessel
+    3     E38      Dong Son Bronze Drum  0.079                    archaeology, bronze, maritime
+    4     E04      Hoi An Harbor Scroll  0.076         maritime trade, maritime, trade, ceramic
+    5     E18      Kendi Water Vessel  0.075                  ceramic, vessel, trade, trading
+
+
+================================================================================
+7. Git commits pushed to GitHub
+================================================================================
+Remote: https://github.com/Kiettos/cs467-miniproject-29211354053   (branch: main)
+
+  c45c86e  init empty project
+  a30b8e9  Add requirement library and dataset
+  4bfa789  Implement NLP preprocessing and TF-IDF module
+  286b528  Implement popularity, content-based, CF and hybrid recommenders
+  0285f94  Add demo script and test cases
+  4ffa591  Update Readme
